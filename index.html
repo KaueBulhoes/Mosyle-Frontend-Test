@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mosyle Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <div class="logo-dot"></div>
+        mosyle
+      </div>
+      <ul class="nav-menu">
+        <li class="active">Dashboard</li>
+        <li>Organization</li>
+        <li>Management</li>
+        <li>Security</li>
+        <li>DNS Filtering</li>
+        <li>Support</li>
+      </ul>
+      <div class="header-right">
+        <div class="session-info">Session expires in: 23:13 | John Austin</div>
+        <div class="settings-logout">
+          <span>⚙ Settings</span>
+          <span>⏻ Logout</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <!-- Left Panel -->
+      <div class="left-panel">
+        <!-- Brand Section -->
+        <div class="brand-section">
+          <div class="brand-title">COFFEE'S FOR GEEKS</div>
+        </div>
+
+        <!-- MDM Alerts -->
+        <div class="alerts-section">
+          <h3 class="alerts-title">MDM Alerts</h3>
+          <div class="alerts-list">
+            <div class="alert-item">
+              <div class="alert-icon">📋</div>
+              <span class="alert-text"
+                >Your Push Certificate is configured</span
+              >
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">🚫</div>
+              <span class="alert-text">No connection</span>
+              <span class="alert-count">9</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">🍎</div>
+              <span class="alert-text">Apple ID not Logged</span>
+              <span class="alert-count">7</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">⚠️</div>
+              <span class="alert-text">OS update</span>
+              <span class="alert-count">4</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">👤</div>
+              <span class="alert-text">Enrollment Last 3 days</span>
+              <span class="alert-count">3</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">📦</div>
+              <span class="alert-text">App Catalog Server Offline</span>
+              <span class="alert-count">1</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">✅</div>
+              <span class="alert-text">MDM Approval required</span>
+              <span class="alert-count success">0</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">👥</div>
+              <span class="alert-text"
+                >Group Admin without User Group to manage</span
+              >
+              <span class="alert-count success">0</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">🔢</div>
+              <span class="alert-text">Duplicate Serial Numbers</span>
+              <span class="alert-count success">0</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">📚</div>
+              <span class="alert-text"
+                >Apps and Books licenses almost full</span
+              >
+              <span class="alert-count success">0</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">💾</div>
+              <span class="alert-text">Storage almost full</span>
+              <span class="alert-count success">0</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon">🔧</div>
+              <span class="alert-text">MDM profile removed</span>
+              <span class="alert-count success">0</span>
+              <button class="delete-btn" onclick="deleteAlert(this)">×</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Panel -->
+      <div class="center-panel">
+        <!-- Enrolled Devices & Licenses -->
+        <div class="card">
+          <h2 class="card-title">Enrolled Devices & Licenses</h2>
+
+          <div class="subscription-status">
+            <div class="check-icon">✓</div>
+            <span
+              >Mosyle Fuse subscription until 12/31/2024 (286 days left)</span
+            >
+          </div>
+
+          <div class="license-progress-bar">
+            <div class="license-progress"></div>
+          </div>
+          <div class="license-text">150 licenses used of 150 available</div>
+
+          <div class="devices-grid">
+            <div class="device-card">
+              <div class="device-icon-placeholder device-icon-ios"></div>
+              <div class="device-number">2</div>
+              <div class="device-label">iOS / iPadOS</div>
+            </div>
+            <div class="device-card">
+              <div class="device-icon-placeholder device-icon-macos"></div>
+              <div class="device-number">148</div>
+              <div class="device-label">macOS</div>
+            </div>
+            <div class="device-card">
+              <div class="device-icon-placeholder device-icon-tvos"></div>
+              <div class="device-number">0</div>
+              <div class="device-label">tvOS</div>
+            </div>
+            <div class="device-card">
+              <div class="device-icon-placeholder device-icon-visionos"></div>
+              <div class="device-number">0</div>
+              <div class="device-label">visionOS</div>
+            </div>
+          </div>
+
+          <div class="quick-access-title">
+            Quick Access to Favorite MDM Profiles
+          </div>
+          <div class="quick-access-grid">
+            <div class="quick-access-btn">📱 iOS / iPadOS / watchOS</div>
+            <div class="quick-access-btn">💻 macOS</div>
+            <div class="quick-access-btn">📺 tvOS</div>
+            <div class="quick-access-btn">🥽 visionOS</div>
+          </div>
+
+          <button class="install-app-btn">📦 Install App</button>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <!-- Security -->
+        <div class="card">
+          <div class="security-header">
+            <h3 class="card-title">Security</h3>
+            <button class="refresh-security-btn" onclick="refreshSecurity()">
+              🔄 Refresh
+            </button>
+          </div>
+
+          <div class="security-compliance">
+            <div class="compliance-title">Hardening & Compliance</div>
+            <div class="compliance-items">
+              <div class="compliance-item">
+                <div class="compliance-circle macos">94%</div>
+                <div class="compliance-percentage">macOS Infections</div>
+              </div>
+              <div class="compliance-item">
+                <div class="compliance-circle infections">50%</div>
+                <div class="compliance-percentage">Infections</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="security-summary">
+            <div class="security-number">0</div>
+            <div class="security-label">Findings</div>
+            <div class="security-divider"></div>
+            <div class="security-number">0</div>
+            <div class="security-label">Devices</div>
+          </div>
+        </div>
+
+        <!-- Support Tickets -->
+        <div class="card">
+          <h3 class="card-title">Support Tickets</h3>
+          <div class="tickets-list">
+            <div class="ticket-item">
+              <div class="ticket-info">
+                <div class="ticket-status-line">
+                  <span class="ticket-status">Closed</span>
+                  <span class="ticket-id">#82513 - Test On Prem</span>
+                </div>
+                <div class="ticket-title">Test On Prem</div>
+              </div>
+              <div class="ticket-date">01/15/2023</div>
+            </div>
+            <div class="ticket-item">
+              <div class="ticket-info">
+                <div class="ticket-status-line">
+                  <span class="ticket-status">Closed</span>
+                  <span class="ticket-id"
+                    >#47510 - Paulo Testing on-premises</span
+                  >
+                </div>
+                <div class="ticket-title">Paulo Testing on-premises</div>
+              </div>
+              <div class="ticket-date">12/05/2019</div>
+            </div>
+          </div>
+          <button class="go-support-btn">Go to Support</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

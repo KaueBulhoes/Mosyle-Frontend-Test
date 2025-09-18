@@ -1,0 +1,590 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f8f9fa;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Header */
+.header {
+  background: #1a4a7a;
+  color: white;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  background: #4caf50;
+  border-radius: 50%;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin-left: 60px;
+}
+
+.nav-menu li {
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+.nav-menu li:hover,
+.nav-menu li.active {
+  color: white;
+}
+
+.header-right {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.session-info {
+  background: #ffc107;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 0 0 4px 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.settings-logout {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  justify-content: flex-end;
+}
+
+.settings-logout span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* Main Layout */
+.main-container {
+  display: flex;
+  height: calc(100vh - 60px);
+  background: #f8f9fa;
+}
+
+.left-panel {
+  width: 280px;
+  background: white;
+  border-right: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+}
+
+.center-panel {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.right-panel {
+  width: 320px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Coffee's for Geeks Logo */
+.brand-section {
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.brand-title {
+  font-size: 22px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+
+/* MDM Alerts */
+.alerts-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.alerts-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.alerts-list {
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f3f4;
+  position: relative;
+  font-size: 13px;
+}
+
+.alert-item:last-child {
+  border-bottom: none;
+}
+
+.alert-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.alert-text {
+  flex: 1;
+  color: #495057;
+}
+
+.alert-count {
+  background: #dc3545;
+  color: white;
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.alert-count.success {
+  background: #28a745;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-left: 8px;
+}
+
+.alert-item:hover .delete-btn {
+  opacity: 1;
+}
+
+/* Center Cards */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Enrolled Devices */
+.subscription-status {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.license-progress-bar {
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.license-progress {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.license-text {
+  font-size: 12px;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.devices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.device-card {
+  text-align: center;
+  padding: 20px 12px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: #fafbfc;
+}
+
+.device-icon-placeholder {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 12px;
+  border-radius: 6px;
+  background: #ddd;
+}
+
+.device-icon-ios {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+}
+
+.device-icon-macos {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.device-icon-tvos {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.device-icon-visionos {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.device-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.device-label {
+  font-size: 11px;
+  color: #6c757d;
+}
+
+.quick-access-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.quick-access-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 12px 8px;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: center;
+  transition: background 0.3s;
+  color: #495057;
+}
+
+.quick-access-btn:hover {
+  background: #e9ecef;
+}
+
+.install-app-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Security Section */
+.security-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.refresh-security-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.security-compliance {
+  margin-bottom: 20px;
+}
+
+.compliance-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.compliance-items {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.compliance-item {
+  flex: 1;
+  text-align: center;
+}
+
+.compliance-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.compliance-circle.macos {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.compliance-circle.infections {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.compliance-percentage {
+  font-size: 11px;
+  color: #6c757d;
+}
+
+.security-summary {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.security-number {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.security-label {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.security-divider {
+  margin: 16px 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Support Tickets */
+.tickets-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.ticket-item:last-child {
+  border-bottom: none;
+}
+
+.ticket-info {
+  flex: 1;
+}
+
+.ticket-status-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ticket-status {
+  background: #6c757d;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.ticket-id {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.ticket-title {
+  font-size: 13px;
+  color: #333;
+}
+
+.ticket-date {
+  font-size: 11px;
+  color: #6c757d;
+  text-align: right;
+}
+
+.go-support-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 16px;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .main-container {
+    flex-direction: column;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .left-panel {
+    width: 100%;
+  }
+
+  .right-panel {
+    width: 100%;
+  }
+
+  .devices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .devices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compliance-items {
+    flex-direction: column;
+  }
+}
+
+/* Scrollbar Styling */
+.alerts-list::-webkit-scrollbar,
+.tickets-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.alerts-list::-webkit-scrollbar-track,
+.tickets-list::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+.alerts-list::-webkit-scrollbar-thumb,
+.tickets-list::-webkit-scrollbar-thumb {
+  background: #dee2e6;
+  border-radius: 3px;
+}
