@@ -109,18 +109,33 @@ body {
   background-color: #ebebeb;
 }
 
-.left-panel {
+.left-panel,
+.center-panel,
+.right-panel {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.center-panel .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-panel .card:last-child,
+.right-panel .card:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-panel {
   gap: 20px;
 }
 
-.center-panel {
-  display: flex;
-  flex-direction: column;
-}
-
-.right-panel {
+.left-panel .card:last-child > div {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
