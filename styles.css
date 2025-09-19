@@ -135,7 +135,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: bold;
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: linear-gradient(90deg, #4090e6, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -143,17 +143,50 @@ body {
 }
 
 /* MDM Alerts */
-.alerts-section {
-  flex: 1;
-  padding: 20px;
-}
-
 .alerts-title {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #333;
-  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Lista de dispositivos no MDM Alerts */
+.device-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 12px 10px;
+  font-size: 12px;
+  color: #535353;
+}
+
+.device-item {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Ícones para cada dispositivo */
+.device-item:nth-child(1)::before {
+  content: "📱";
+  margin-right: 4px;
+}
+
+.device-item:nth-child(2)::before {
+  content: "💻";
+  margin-right: 4px;
+}
+
+.device-item:nth-child(3)::before {
+  content: "📺";
+  margin-right: 4px;
+}
+
+.device-item:nth-child(4)::before {
+  content: "🥽";
+  margin-right: 4px;
 }
 
 .alerts-list {
