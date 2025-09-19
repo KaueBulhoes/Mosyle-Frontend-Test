@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
   background: #f8f9fa;
   overflow: hidden;
   height: 100vh;
@@ -14,7 +14,7 @@ body {
 /* Header */
 .header {
   background: #1a4a7a;
-  color: white;
+  color: #fff;
   padding: 0 24px;
   height: 60px;
   display: flex;
@@ -22,38 +22,47 @@ body {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.logo-dot {
-  width: 8px;
-  height: 8px;
-  background: #4caf50;
-  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
 .nav-menu {
   display: flex;
   gap: 32px;
   list-style: none;
-  margin-left: 60px;
+  margin-left: 30px;
 }
 
 .nav-menu li {
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   font-size: 14px;
-  transition: color 0.3s;
+  transition: all 0.3s;
   font-weight: 400;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-menu li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #ffc107;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-menu li:hover::after,
+.nav-menu li.active::after {
+  transform: scaleX(1);
 }
 
 .nav-menu li:hover,
 .nav-menu li.active {
-  color: white;
+  color: #fff;
 }
 
 .header-right {
@@ -100,7 +109,7 @@ body {
 
 .left-panel {
   width: 280px;
-  background: white;
+  background: #fff;
   border-right: 1px solid #e9ecef;
   display: flex;
   flex-direction: column;
@@ -130,6 +139,7 @@ body {
 }
 
 .brand-title {
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: bold;
   background: linear-gradient(135deg, #007bff, #0056b3);
@@ -146,6 +156,7 @@ body {
 }
 
 .alerts-title {
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #333;
@@ -187,7 +198,7 @@ body {
 
 .alert-count {
   background: #dc3545;
-  color: white;
+  color: #fff;
   border-radius: 50%;
   min-width: 20px;
   height: 20px;
@@ -205,7 +216,7 @@ body {
 
 .delete-btn {
   background: #dc3545;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 3px;
   padding: 2px 6px;
@@ -222,7 +233,7 @@ body {
 
 /* Center Cards */
 .card {
-  background: white;
+  background: #fff;
   border-radius: 8px;
   padding: 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -230,6 +241,7 @@ body {
 }
 
 .card-title {
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: #333;
@@ -239,7 +251,7 @@ body {
 /* Enrolled Devices */
 .subscription-status {
   background: linear-gradient(135deg, #28a745, #20c997);
-  color: white;
+  color: #fff;
   padding: 16px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -321,6 +333,7 @@ body {
 }
 
 .device-number {
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-weight: 700;
   color: #333;
@@ -333,6 +346,7 @@ body {
 }
 
 .quick-access-title {
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #333;
@@ -364,7 +378,7 @@ body {
 
 .install-app-btn {
   background: linear-gradient(135deg, #007bff, #0056b3);
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 6px;
   padding: 12px;
@@ -387,7 +401,7 @@ body {
 
 .refresh-security-btn {
   background: #28a745;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 4px;
   padding: 6px 12px;
@@ -403,6 +417,7 @@ body {
 }
 
 .compliance-title {
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #333;
@@ -430,7 +445,7 @@ body {
   justify-content: center;
   font-size: 20px;
   font-weight: 700;
-  color: white;
+  color: #fff;
 }
 
 .compliance-circle.macos {
@@ -448,13 +463,14 @@ body {
 
 .security-summary {
   background: linear-gradient(135deg, #28a745, #20c997);
-  color: white;
+  color: #fff;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
 }
 
 .security-number {
+  font-family: "Poppins", sans-serif;
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 4px;
@@ -502,7 +518,7 @@ body {
 
 .ticket-status {
   background: #6c757d;
-  color: white;
+  color: #fff;
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 10px;
@@ -527,7 +543,7 @@ body {
 
 .go-support-btn {
   background: #007bff;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
