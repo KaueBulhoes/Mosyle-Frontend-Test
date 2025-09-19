@@ -171,20 +171,6 @@ function addHoverEffects() {
       this.style.boxShadow = "none";
     });
   });
-
-  // Enhanced hover effect for device cards
-  const deviceCards = document.querySelectorAll(".device-card");
-  deviceCards.forEach((card) => {
-    card.addEventListener("mouseenter", function () {
-      this.style.transform = "translateY(-3px)";
-      this.style.boxShadow = "0 6px 16px rgba(0,0,0,0.1)";
-    });
-
-    card.addEventListener("mouseleave", function () {
-      this.style.transform = "translateY(0)";
-      this.style.boxShadow = "none";
-    });
-  });
 }
 
 /**

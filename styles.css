@@ -118,7 +118,6 @@ body {
 }
 
 .center-panel .card {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -130,7 +129,8 @@ body {
   flex-direction: column;
 }
 
-.left-panel {
+.left-panel,
+.center-panel {
   gap: 20px;
 }
 
@@ -294,46 +294,45 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
+  text-align: center;
   color: #333;
-  margin-bottom: 20px;
 }
 
 /* Enrolled Devices */
 .subscription-status {
-  background: linear-gradient(135deg, #28a745, #20c997);
-  color: #fff;
-  padding: 16px;
-  border-radius: 8px;
+  color: #28a745;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
-.check-icon {
+.subscription-status .material-icons {
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 50%;
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  font-size: 14px;
 }
 
 .license-progress-bar {
   height: 8px;
-  background: #e9ecef;
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 8px;
+  height: 25px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
 }
 
 .license-progress {
   height: 100%;
-  width: 100%;
-  background: linear-gradient(90deg, #007bff, #0056b3);
+  width: 5%;
+  background-color: #71b3e9;
 }
 
 .license-text {
@@ -352,42 +351,41 @@ body {
 
 .device-card {
   text-align: center;
-  padding: 20px 12px;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  background: #fafbfc;
 }
 
 .device-icon-placeholder {
   width: 40px;
   height: 40px;
-  margin: 0 auto 12px;
+  margin: 0 auto;
   border-radius: 6px;
-  background: #ddd;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 }
 
-.device-icon-ios {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+.device-icon-ios::before {
+  content: "📱";
 }
 
-.device-icon-macos {
-  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+.device-icon-macos::before {
+  content: "💻";
 }
 
-.device-icon-tvos {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+.device-icon-tvos::before {
+  content: "📺";
 }
 
-.device-icon-visionos {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+.device-icon-visionos::before {
+  content: "🥽";
 }
 
 .device-number {
   font-family: "Poppins", sans-serif;
-  font-size: 24px;
+  font-size: 12px;
   font-weight: 700;
   color: #333;
-  margin-bottom: 4px;
 }
 
 .device-label {
