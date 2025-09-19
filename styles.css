@@ -102,33 +102,27 @@ body {
 
 /* Main Layout */
 .main-container {
-  display: flex;
-  height: calc(100vh - 60px);
-  background: #f8f9fa;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  /* background: #f8f9fa; */
+  background-color: pink;
 }
 
 .left-panel {
-  width: 280px;
-  background: #fff;
-  border-right: 1px solid #e9ecef;
   display: flex;
   flex-direction: column;
 }
 
 .center-panel {
-  flex: 1;
-  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 .right-panel {
-  width: 320px;
-  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 /* Coffee's for Geeks Logo */
