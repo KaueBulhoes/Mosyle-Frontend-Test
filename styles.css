@@ -45,17 +45,18 @@ body {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 60%;
+  height: 2px;
   background-color: #ffc107;
-  transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .nav-menu li:hover::after,
 .nav-menu li.active::after {
-  transform: scaleX(1);
+  transform: translateX(-50%) scaleX(1);
 }
 
 .nav-menu li:hover,
