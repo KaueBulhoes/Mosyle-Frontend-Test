@@ -155,25 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * Adds enhanced hover effects to interactive elements
- */
-function addHoverEffects() {
-  // Enhanced hover effect for quick access buttons
-  const quickAccessButtons = document.querySelectorAll(".quick-access-btn");
-  quickAccessButtons.forEach((btn) => {
-    btn.addEventListener("mouseenter", function () {
-      this.style.transform = "translateY(-2px)";
-      this.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
-    });
-
-    btn.addEventListener("mouseleave", function () {
-      this.style.transform = "translateY(0)";
-      this.style.boxShadow = "none";
-    });
-  });
-}
-
-/**
  * Utility function to debounce function calls
  * @param {Function} func - The function to debounce
  * @param {number} wait - The delay in milliseconds

@@ -122,6 +122,10 @@ body {
   flex-direction: column;
 }
 
+.flex-1 {
+  flex: 1;
+}
+
 .left-panel .card:last-child,
 .right-panel .card:last-child {
   flex: 1;
@@ -292,7 +296,7 @@ body {
 
 .card-title {
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   text-align: center;
   color: #333;
@@ -395,48 +399,11 @@ body {
 
 .quick-access-title {
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
+  text-align: center;
   color: #333;
   margin-bottom: 12px;
-}
-
-.quick-access-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.quick-access-btn {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
-  padding: 12px 8px;
-  cursor: pointer;
-  font-size: 11px;
-  text-align: center;
-  transition: background 0.3s;
-  color: #495057;
-}
-
-.quick-access-btn:hover {
-  background: #e9ecef;
-}
-
-.install-app-btn {
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 12px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
 }
 
 /* Security Section */
