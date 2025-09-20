@@ -235,33 +235,41 @@
       <div class="right-panel">
         <!-- Security -->
         <div class="card">
-          <div class="security-header">
-            <h3 class="card-title">Security</h3>
-            <button class="refresh-security-btn" onclick="refreshSecurity()">
-              🔄 Refresh
-            </button>
-          </div>
+          <h3 class="card-title">Security</h3>
 
-          <div class="security-compliance">
-            <div class="compliance-title">Hardening & Compliance</div>
-            <div class="compliance-items">
-              <div class="compliance-item">
-                <div class="compliance-circle macos">94%</div>
-                <div class="compliance-percentage">macOS Infections</div>
-              </div>
-              <div class="compliance-item">
-                <div class="compliance-circle infections">50%</div>
-                <div class="compliance-percentage">Infections</div>
+          <div class="security-card">
+            <div class="security-compliance">
+              <div class="compliance-title">Hardening & Compliance</div>
+              <div class="compliance-items">
+                <div class="compliance-item">
+                  <div class="device-icon-macos"></div>
+                  <div>94%</div>
+                </div>
+                <div class="compliance-item">
+                  <div class="device-icon-ios"></div>
+                  <div>50%</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="security-summary">
-            <div class="security-number">0</div>
-            <div class="security-label">Findings</div>
-            <div class="security-divider"></div>
-            <div class="security-number">0</div>
-            <div class="security-label">Devices</div>
+            <div>
+              <div class="compliance-title">macOS Infections</div>
+              <div class="security-summary">
+                <div class="security-box">
+                  <div class="security-number">0</div>
+                  <div class="security-label">Findings</div>
+                </div>
+                <div class="security-divider">
+                  <div class="divider"></div>
+                  <span>on</span>
+                  <div class="divider"></div>
+                </div>
+                <div class="security-box">
+                  <div class="security-number">0</div>
+                  <div class="security-label">Devices</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
