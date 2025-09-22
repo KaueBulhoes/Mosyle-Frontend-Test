@@ -1,7 +1,3 @@
-/* =============================================
-   SECURITY - Segurança e Compliance
-   ============================================= */
-
 .security-card-container {
   overflow: hidden;
 }
@@ -18,10 +14,6 @@
 .security-header .card-title {
   margin: 0;
 }
-
-/* =============================================
-   REFRESH BUTTON
-   ============================================= */
 
 .refresh-btn {
   position: absolute;
@@ -57,10 +49,6 @@
   animation: spin 1s linear infinite;
 }
 
-/* =============================================
-   SECURITY CARD LAYOUT
-   ============================================= */
-
 .security-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -75,10 +63,6 @@
   display: flex;
   flex-direction: column;
 }
-
-/* =============================================
-   COMPLIANCE
-   ============================================= */
 
 .compliance-title {
   font-family: "Poppins", sans-serif;
@@ -117,10 +101,6 @@
 .red {
   color: var(--accent-red);
 }
-
-/* =============================================
-   INFECTIONS SUMMARY
-   ============================================= */
 
 .security-summary {
   background: var(--security);

@@ -24,104 +24,135 @@
     />
   </head>
   <body>
-    <header class="header">
+    <header class="header" role="banner">
       <img
         class="logo"
         src="./assets/images/mosyle_logo_nobg.png"
         alt="Mosyle logo"
       />
-      <ul class="nav-menu">
-        <li class="active">Dashboard</li>
-        <li>Organization</li>
-        <li>Management</li>
-        <li>Security</li>
-        <li>DNS Filtering</li>
-        <li>Support</li>
-      </ul>
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu">
+          <li class="active" data-nav="dashboard">Dashboard</li>
+          <li data-nav="organization">Organization</li>
+          <li data-nav="management">Management</li>
+          <li data-nav="security">Security</li>
+          <li data-nav="dns">DNS Filtering</li>
+          <li data-nav="support">Support</li>
+        </ul>
+      </nav>
       <div class="header-right">
-        <div class="session-info"></div>
+        <div
+          class="session-info"
+          aria-live="polite"
+          data-session-status="active"
+        ></div>
         <div class="settings-logout">
-          <span>⚙ Settings</span>
-          <span>↻ Logout</span>
+          <button
+            class="header-btn"
+            data-action="settings"
+            aria-label="Settings"
+          >
+            ⚙ Settings
+          </button>
+          <button class="header-btn" data-action="logout" aria-label="Logout">
+            ↻ Logout
+          </button>
         </div>
       </div>
     </header>
 
-    <div class="main-container">
-      <div class="left-column">
-        <div class="card brand-card">
+    <main class="main-container" role="main">
+      <section class="left-column" aria-label="Brand and alerts">
+        <article class="card brand-card" aria-label="Company branding">
           <div class="brand-section">
-            <div class="brand-title">COFFEE'S FOR GEEKS</div>
+            <h1 class="brand-title">COFFEE'S FOR GEEKS</h1>
           </div>
-        </div>
+        </article>
 
-        <div class="card alerts-card">
+        <article class="card alerts-card" aria-labelledby="alerts-title">
           <div>
-            <h3 class="alerts-title">MDM Alerts</h3>
-            <ul class="device-list">
-              <li class="device-item">iOS / iPadOS / watchOS</li>
-              <li class="device-item">masOC</li>
-              <li class="device-item">tvOS</li>
-              <li class="device-item">visionOS</li>
-            </ul>
-            <div class="alerts-list"></div>
+            <h2 id="alerts-title" class="alerts-title">MDM Alerts</h2>
+            <ul
+              class="device-list"
+              role="tablist"
+              aria-label="Device types"
+            ></ul>
+            <div class="alerts-list" role="list" aria-live="polite"></div>
           </div>
-        </div>
-      </div>
+        </article>
+      </section>
 
-      <div class="middle-column">
-        <div class="card enrolled-card">
-          <h2 class="card-title">Enrolled Devices & Licenses</h2>
+      <section class="middle-column" aria-label="Devices and quick access">
+        <article class="card enrolled-card" aria-labelledby="enrolled-title">
+          <h2 id="enrolled-title" class="card-title">
+            Enrolled Devices & Licenses
+          </h2>
 
-          <div class="subscription-status">
-            <span class="material-icons">done</span>
+          <div class="subscription-status" data-status="active">
+            <span class="material-icons" aria-hidden="true">done</span>
             <span></span>
           </div>
 
-          <div class="license-progress-bar">
-            <div class="license-progress"></div>
+          <div
+            class="license-progress-bar"
+            role="progressbar"
+            aria-valuenow="100"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div class="license-progress" data-progress="100"></div>
           </div>
           <div class="license-text">
             <em></em>
           </div>
 
-          <div class="devices-grid"></div>
-        </div>
+          <div
+            class="devices-grid"
+            role="list"
+            aria-label="Device counts"
+          ></div>
+        </article>
 
-        <div class="card quick-access-card">
-          <div class="quick-access-title">
+        <article
+          class="card quick-access-card"
+          aria-labelledby="quick-access-title"
+        >
+          <h2 id="quick-access-title" class="quick-access-title">
             Quick Access to Favorite MDM Profiles
-          </div>
-          <ul class="device-list">
-            <li class="device-item">iOS / iPadOS / watchOS</li>
-            <li class="device-item">masOC</li>
-            <li class="device-item">tvOS</li>
-            <li class="device-item">visionOS</li>
-          </ul>
-          <div class="alerts-list"></div>
-        </div>
-      </div>
+          </h2>
+          <ul class="device-list" role="tablist" aria-label="Device types"></ul>
+          <div class="alerts-list" role="list"></div>
+        </article>
+      </section>
 
-      <div class="right-column">
-        <div class="card security-card-container">
+      <section class="right-column" aria-label="Security and support">
+        <article
+          class="card security-card-container"
+          aria-labelledby="security-title"
+        >
           <div class="security-header">
-            <h3 class="card-title">Security</h3>
-            <button class="refresh-btn" onclick="refreshSecurity(this)">
-              <span class="material-icons">refresh</span>
+            <h2 id="security-title" class="card-title">Security</h2>
+            <button
+              class="refresh-btn"
+              data-action="refresh-security"
+              data-loading="false"
+              aria-label="Refresh security data"
+            >
+              <span class="material-icons" aria-hidden="true">refresh</span>
             </button>
           </div>
 
           <div class="security-card">
             <div class="security-compliance">
-              <div class="compliance-title">Hardening & Compliance</div>
-              <div class="compliance-items"></div>
+              <h3 class="compliance-title">Hardening & Compliance</h3>
+              <div class="compliance-items" role="list"></div>
             </div>
 
             <div class="security-infections">
-              <div class="compliance-title">macOS Infections</div>
+              <h3 class="compliance-title">macOS Infections</h3>
               <div class="security-summary">
                 <div class="security-box">
-                  <div class="security-number">0</div>
+                  <div class="security-number" data-metric="findings">0</div>
                   <div class="security-label">Findings</div>
                 </div>
                 <div class="security-divider">
@@ -130,21 +161,23 @@
                   <div class="divider"></div>
                 </div>
                 <div class="security-box">
-                  <div class="security-number">0</div>
+                  <div class="security-number" data-metric="devices">0</div>
                   <div class="security-label">Devices</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="card support-card">
-          <h3 class="card-title">Support Tickets</h3>
-          <div class="tickets-list"></div>
-          <button class="go-support-btn">Go to Support</button>
-        </div>
-      </div>
-    </div>
+        <article class="card support-card" aria-labelledby="support-title">
+          <h2 id="support-title" class="card-title">Support Tickets</h2>
+          <div class="tickets-list" role="list" aria-live="polite"></div>
+          <button class="go-support-btn" data-action="go-support">
+            Go to Support
+          </button>
+        </article>
+      </section>
+    </main>
 
     <script src="js/data/api-data.js"></script>
     <script type="module" src="js/main.js"></script>

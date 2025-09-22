@@ -1,8 +1,3 @@
-/**
- * MOSYLE DASHBOARD - Main Entry Point
- * Orquestrador principal da aplicação
- */
-
 import { DOM } from "./utils/dom.js";
 import { renderAlerts, deleteAlert } from "./components/alerts.js";
 import { renderDevices, renderSubscription } from "./components/devices.js";
@@ -11,21 +6,9 @@ import { renderSecurity, refreshSecurity } from "./components/security.js";
 import { renderTickets } from "./components/tickets.js";
 import { renderSessionInfo } from "./components/session.js";
 
-/**
- * Expõe funções globalmente para uso com onclick
- * (necessário até migrar para event listeners)
- */
-window.deleteAlert = deleteAlert;
-window.refreshSecurity = refreshSecurity;
-
-/**
- * Inicializa o dashboard
- */
 function initDashboard() {
-  // Inicializa cache do DOM
   DOM.init();
 
-  // Verifica se os dados estão disponíveis
   if (
     typeof dashboardData === "undefined" ||
     typeof deviceTypes === "undefined"
@@ -36,7 +19,6 @@ function initDashboard() {
     return;
   }
 
-  // Renderiza todos os componentes
   renderAlerts(dashboardData.alerts);
   renderQuickAccess(dashboardData.quickAccess);
   renderDevices(deviceTypes);
@@ -48,21 +30,43 @@ function initDashboard() {
   console.log("✅ Mosyle Dashboard initialized successfully");
 }
 
-/**
- * Event Listeners (opcional - pode substituir onclick)
- */
 function setupEventListeners() {
-  // Delegação de eventos para botões de delete
   document.addEventListener("click", (e) => {
-    if (e.target.closest('[data-action="delete-alert"]')) {
-      deleteAlert(e.target.closest('[data-action="delete-alert"]'));
+    const target = e.target.closest("[data-action]");
+    if (!target) return;
+
+    const action = target.dataset.action;
+
+    switch (action) {
+      case "delete-alert":
+        deleteAlert(target);
+        break;
+      case "refresh-security":
+        refreshSecurity(target);
+        break;
+      case "settings":
+        console.log("Settings clicked");
+        break;
+      case "logout":
+        console.log("Logout clicked");
+        break;
+      case "go-support":
+        console.log("Go to Support clicked");
+        break;
     }
+  });
+
+  document.querySelectorAll("[data-nav]").forEach((item) => {
+    item.addEventListener("click", () => {
+      document
+        .querySelectorAll("[data-nav]")
+        .forEach((i) => i.classList.remove("active"));
+      item.classList.add("active");
+      console.log(`Navegando para: ${item.dataset.nav}`);
+    });
   });
 }
 
-/**
- * Inicializa quando DOM estiver pronto
- */
 document.addEventListener("DOMContentLoaded", () => {
   initDashboard();
   setupEventListeners();

@@ -1,8 +1,3 @@
-/* =============================================
-   RESPONSIVE DESIGN - Media Queries
-   ============================================= */
-
-/* Desktop Grande */
 @media (min-width: 1025px) {
   body {
     overflow: hidden;
@@ -13,14 +8,12 @@
   }
 }
 
-/* Desktop Médio */
 @media (max-width: 1400px) {
   .main-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Tablet */
 @media (max-width: 1024px) {
   body {
     overflow-y: auto;
@@ -60,7 +53,6 @@
   }
 }
 
-/* Mobile Landscape / Tablet Pequeno */
 @media (max-width: 768px) {
   .nav-menu {
     gap: 16px;
@@ -93,7 +85,6 @@
   }
 }
 
-/* Mobile Portrait */
 @media (max-width: 480px) {
   .nav-menu {
     display: none;

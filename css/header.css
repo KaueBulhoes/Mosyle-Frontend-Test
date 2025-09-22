@@ -1,7 +1,3 @@
-/* =============================================
-   HEADER - Cabeçalho e Navegação
-   ============================================= */
-
 .header {
   background: var(--primary-blue);
   color: var(--text-white);
@@ -15,10 +11,6 @@
   height: 50px;
   width: 50px;
 }
-
-/* =============================================
-   MENU DE NAVEGAÇÃO
-   ============================================= */
 
 .nav-menu {
   display: flex;
@@ -60,10 +52,6 @@
   color: var(--text-white);
 }
 
-/* =============================================
-   ÁREA DIREITA DO HEADER
-   ============================================= */
-
 .header-right {
   position: absolute;
   top: 0;
@@ -92,9 +80,20 @@
   justify-content: flex-end;
 }
 
-.settings-logout span {
+.settings-logout .header-btn {
+  background: none;
+  border: none;
+  color: inherit;
   display: flex;
   align-items: center;
   gap: 4px;
   cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.settings-logout .header-btn:hover {
+  opacity: 0.8;
 }

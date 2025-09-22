@@ -1,12 +1,3 @@
-/**
- * Templates HTML reutilizáveis
- */
-
-/**
- * Template para item de alerta
- * @param {Object} alert - Dados do alerta
- * @returns {string} HTML do alerta
- */
 export function alertItemTemplate(alert) {
   return `
     <div class="alert-item">
@@ -22,19 +13,10 @@ export function alertItemTemplate(alert) {
   `;
 }
 
-/**
- * Template para item vazio (placeholder)
- * @returns {string} HTML do item vazio
- */
 export function emptyAlertTemplate() {
   return '<div class="alert-item"></div>';
 }
 
-/**
- * Template para item de acesso rápido
- * @param {Object} item - Dados do item
- * @returns {string} HTML do item
- */
 export function quickAccessTemplate(item) {
   return `
     <div class="alert-item">
@@ -44,19 +26,10 @@ export function quickAccessTemplate(item) {
   `;
 }
 
-/**
- * Template para item vazio de acesso rápido
- * @returns {string} HTML do item vazio
- */
 export function emptyQuickAccessTemplate() {
   return '<div class="alert-item"><span class="alert-text"></span></div>';
 }
 
-/**
- * Template para card de dispositivo
- * @param {Object} device - Dados do dispositivo
- * @returns {string} HTML do card
- */
 export function deviceCardTemplate(device) {
   const iconClass = getDeviceIconClass(device.icon);
 
@@ -69,11 +42,6 @@ export function deviceCardTemplate(device) {
   `;
 }
 
-/**
- * Mapeia ícone para classe CSS
- * @param {string} icon - Emoji do ícone
- * @returns {string} Classe CSS
- */
 function getDeviceIconClass(icon) {
   const iconMap = {
     "📱": "device-icon-ios",
@@ -84,11 +52,6 @@ function getDeviceIconClass(icon) {
   return iconMap[icon] || "";
 }
 
-/**
- * Template para item de ticket
- * @param {Object} ticket - Dados do ticket
- * @returns {string} HTML do ticket
- */
 export function ticketItemTemplate(ticket) {
   return `
     <div class="ticket-item">
@@ -103,10 +66,6 @@ export function ticketItemTemplate(ticket) {
   `;
 }
 
-/**
- * Template para item vazio de ticket
- * @returns {string} HTML do item vazio
- */
 export function emptyTicketTemplate() {
   return `
     <div class="ticket-item">
@@ -117,11 +76,6 @@ export function emptyTicketTemplate() {
   `;
 }
 
-/**
- * Template para item de compliance
- * @param {Object} item - Dados de compliance
- * @returns {string} HTML do item
- */
 export function complianceItemTemplate(item) {
   const iconClass =
     item.type.toLowerCase() === "macos"

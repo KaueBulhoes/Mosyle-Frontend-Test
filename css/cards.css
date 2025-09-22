@@ -1,7 +1,3 @@
-/* =============================================
-   CARDS - Estrutura Base
-   ============================================= */
-
 .card {
   background: var(--bg-card);
   border-radius: 4px;
@@ -22,10 +18,6 @@
   flex-shrink: 0;
 }
 
-/* =============================================
-   BRAND CARD
-   ============================================= */
-
 .brand-section {
   text-align: center;
   display: flex;
@@ -43,10 +35,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-/* =============================================
-   ALERTS & QUICK ACCESS CARDS
-   ============================================= */
 
 .alerts-card,
 .quick-access-card {
@@ -73,10 +61,6 @@
 .quick-access-title {
   margin-bottom: 12px;
 }
-
-/* =============================================
-   DEVICE LIST
-   ============================================= */
 
 .device-list {
   display: flex;
@@ -115,10 +99,6 @@
   content: "🥽";
   margin-right: 4px;
 }
-
-/* =============================================
-   ALERTS LIST
-   ============================================= */
 
 .alerts-list {
   border: 1px solid var(--border-medium);
@@ -173,10 +153,6 @@
   font-weight: 500;
   margin-left: 8px;
 }
-
-/* =============================================
-   DELETE BUTTON
-   ============================================= */
 
 .delete-btn {
   background: none;
