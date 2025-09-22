@@ -572,10 +572,22 @@ body {
   flex-shrink: 0;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
+  .main-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    overflow-y: auto;
+    height: auto;
+  }
+
   .main-container {
     grid-template-columns: 1fr;
     height: auto;
+    overflow-y: visible;
   }
 
   .left-column,
@@ -583,14 +595,61 @@ body {
   .right-column {
     grid-template-rows: auto auto;
     height: auto;
+    overflow: visible;
+  }
+
+  .card {
+    overflow: visible;
+  }
+
+  .alerts-card,
+  .quick-access-card {
+    overflow: visible;
+  }
+
+  .alerts-card > div {
+    overflow: visible;
+  }
+
+  .alerts-list,
+  .tickets-list {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 16px;
+    font-size: 12px;
+  }
+
+  .header {
+    padding: 0 12px;
+  }
+
+  .header-right {
+    right: 12px;
+  }
+
+  .main-container {
+    padding: 12px;
+    gap: 12px;
   }
 
   .devices-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .security-card {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-title {
+    font-size: 18px;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .nav-menu {
     display: none;
   }
@@ -601,6 +660,24 @@ body {
 
   .compliance-items {
     flex-direction: column;
+  }
+
+  .session-info {
+    font-size: 10px;
+  }
+
+  .settings-logout {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    overflow: hidden;
+  }
+
+  .main-container {
+    overflow: hidden;
   }
 }
 
