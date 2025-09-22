@@ -103,10 +103,34 @@ body {
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
   min-height: calc(100vh - 60px);
   gap: 20px;
   padding: 20px;
   background-color: #ebebeb;
+
+  grid-template-areas:
+    "left center right" /* primeira linha */
+    "left2 center2 right2"; /* segunda linha */
+}
+
+.left-panel .card:nth-child(1) {
+  grid-area: left;
+}
+.center-panel .card:nth-child(1) {
+  grid-area: center;
+}
+.right-panel .card:nth-child(1) {
+  grid-area: right;
+}
+.left-panel .card:nth-child(2) {
+  grid-area: left2;
+}
+.center-panel .card:nth-child(2) {
+  grid-area: center2;
+}
+.right-panel .card:nth-child(2) {
+  grid-area: right2;
 }
 
 .left-panel,
@@ -290,7 +314,7 @@ body {
 .card {
   background: #fff;
   border-radius: 4px;
-  padding: 24px;
+  padding: 24px 18px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #e9ecef;
 }
@@ -427,8 +451,11 @@ body {
   gap: 4px;
 }
 
-.security-compliance {
-  margin-bottom: 20px;
+.security-compliance,
+.security-infections {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .compliance-title {
@@ -452,8 +479,22 @@ body {
 
 .compliance-item {
   font-size: 36px;
+  font-weight: 500;
   display: flex;
-  text-align: center;
+  align-items: baseline;
+  padding: 24px 0;
+}
+
+.compliance-item > div > span {
+  font-size: 24px;
+}
+
+.green {
+  color: #28a745;
+}
+
+.red {
+  color: #e20c0c;
 }
 
 .security-summary {
@@ -461,6 +502,7 @@ body {
   color: #fff;
   border-radius: 4px;
   text-align: center;
+  padding: 24px 0;
 }
 
 .security-box {
@@ -472,9 +514,8 @@ body {
 
 .security-number {
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 4px;
 }
 
 .security-label {
