@@ -31,23 +31,21 @@
         <div class="session-info">Session expires in: 23:13 | John Austin</div>
         <div class="settings-logout">
           <span>⚙ Settings</span>
-          <span>⏻ Logout</span>
+          <span>↻ Logout</span>
         </div>
       </div>
     </header>
 
     <div class="main-container">
-      <!-- Left Panel -->
-      <div class="left-panel">
-        <div class="card">
-          <!-- Brand Section -->
+      <!-- Coluna 1 -->
+      <div class="left-column">
+        <div class="card brand-card">
           <div class="brand-section">
             <div class="brand-title">COFFEE'S FOR GEEKS</div>
           </div>
         </div>
 
-        <div class="card">
-          <!-- MDM Alerts -->
+        <div class="card alerts-card">
           <div>
             <h3 class="alerts-title">MDM Alerts</h3>
             <ul class="device-list">
@@ -58,7 +56,7 @@
             </ul>
             <div class="alerts-list">
               <div class="alert-item">
-                <div class="alert-icon">📋</div>
+                <div class="alert-icon">🔋</div>
                 <span class="alert-text"
                   >Your Push Certificate is configured</span
                 >
@@ -71,7 +69,7 @@
                 <button class="delete-btn" onclick="deleteAlert(this)"></button>
               </div>
               <div class="alert-item">
-                <div class="alert-icon">🍎</div>
+                <div class="alert-icon">🎁</div>
                 <span class="alert-text">Apple ID not Logged</span>
                 <span class="alert-count">7</span>
                 <button class="delete-btn" onclick="deleteAlert(this)"></button>
@@ -139,10 +137,9 @@
         </div>
       </div>
 
-      <!-- Center Panel -->
-      <div class="center-panel">
-        <!-- Enrolled Devices & Licenses -->
-        <div class="card">
+      <!-- Coluna 2 -->
+      <div class="middle-column">
+        <div class="card enrolled-card">
           <h2 class="card-title">Enrolled Devices & Licenses</h2>
 
           <div class="subscription-status">
@@ -183,7 +180,7 @@
           </div>
         </div>
 
-        <div class="card flex-1">
+        <div class="card quick-access-card">
           <div class="quick-access-title">
             Quick Access to Favorite MDM Profiles
           </div>
@@ -231,10 +228,9 @@
         </div>
       </div>
 
-      <!-- Right Panel -->
-      <div class="right-panel">
-        <!-- Security -->
-        <div class="card">
+      <!-- Coluna 3 -->
+      <div class="right-column">
+        <div class="card security-card-container">
           <h3 class="card-title">Security</h3>
 
           <div class="security-card">
@@ -273,8 +269,7 @@
           </div>
         </div>
 
-        <!-- Support Tickets -->
-        <div class="card">
+        <div class="card support-card">
           <h3 class="card-title">Support Tickets</h3>
           <div class="tickets-list">
             <div class="ticket-item">

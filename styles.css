@@ -99,71 +99,49 @@ body {
   cursor: pointer;
 }
 
-/* Main Layout */
+/* Main Layout com 3 colunas */
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  min-height: calc(100vh - 60px);
   gap: 20px;
   padding: 20px;
+  height: calc(100vh - 60px);
   background-color: #ebebeb;
-
-  grid-template-areas:
-    "left center right" /* primeira linha */
-    "left2 center2 right2"; /* segunda linha */
 }
 
-.left-panel .card:nth-child(1) {
-  grid-area: left;
-}
-.center-panel .card:nth-child(1) {
-  grid-area: center;
-}
-.right-panel .card:nth-child(1) {
-  grid-area: right;
-}
-.left-panel .card:nth-child(2) {
-  grid-area: left2;
-}
-.center-panel .card:nth-child(2) {
-  grid-area: center2;
-}
-.right-panel .card:nth-child(2) {
-  grid-area: right2;
-}
-
-.left-panel,
-.center-panel,
-.right-panel {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.center-panel .card {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-1 {
-  flex: 1;
-}
-
-.left-panel .card:last-child,
-.right-panel .card:last-child {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.left-panel,
-.center-panel,
-.right-panel {
+/* Coluna 1 (Esquerda) - 15% / 85% */
+.left-column {
+  display: grid;
+  grid-template-rows: 15% 85%;
   gap: 20px;
 }
 
-.left-panel .card:last-child > div {
+/* Coluna 2 (Centro) - 30% / 70% */
+.middle-column,
+.right-column {
+  display: grid;
+  grid-template-rows: 30% 70%;
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 24px 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+}
+
+.alerts-card,
+.quick-access-card {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.alerts-card > div {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -172,6 +150,10 @@ body {
 /* Coffee's for Geeks Logo */
 .brand-section {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .brand-title {
@@ -182,7 +164,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 4px;
 }
 
 /* MDM Alerts */
@@ -194,7 +175,7 @@ body {
   text-align: center;
 }
 
-/* Lista de dispositivos no MDM Alerts */
+/* Lista de dispositivos */
 .device-list {
   display: flex;
   justify-content: space-between;
@@ -211,7 +192,6 @@ body {
   white-space: nowrap;
 }
 
-/* Ícones para cada dispositivo */
 .device-item:nth-child(1)::before {
   content: "📱";
   margin-right: 4px;
@@ -235,6 +215,8 @@ body {
 .alerts-list {
   border: 1px solid #dee2e6;
   border-radius: 6px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .alert-item {
@@ -247,11 +229,11 @@ body {
 }
 
 .alert-item:nth-child(odd) {
-  background-color: #f8f9fa; /* Cinza claro */
+  background-color: #f8f9fa;
 }
 
 .alert-item:nth-child(even) {
-  background-color: #ffffff; /* Branco */
+  background-color: #ffffff;
 }
 
 .alert-icon {
@@ -310,15 +292,6 @@ body {
   background-position: center;
 }
 
-/* Center Cards */
-.card {
-  background: #fff;
-  border-radius: 4px;
-  padding: 24px 18px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e9ecef;
-}
-
 .card-title {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -330,7 +303,7 @@ body {
 /* Enrolled Devices */
 .subscription-status {
   color: #28a745;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -350,11 +323,10 @@ body {
 }
 
 .license-progress-bar {
-  height: 8px;
+  height: 25px;
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 8px;
-  height: 25px;
   background: linear-gradient(90deg, #007bff, #0056b3);
 }
 
@@ -368,30 +340,17 @@ body {
   font-size: 12px;
   color: #6c757d;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .devices-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-bottom: 24px;
 }
 
 .device-card {
   text-align: center;
-}
-
-.device-icon-placeholder {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  border-radius: 6px;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
 }
 
 .device-icon-ios::before {
@@ -434,26 +393,13 @@ body {
 /* Security Section */
 .security-card {
   display: grid;
-  grid-template-columns: 65% 35%;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
-}
-
-.refresh-security-btn {
-  background: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  margin-top: 20px;
 }
 
 .security-compliance,
 .security-infections {
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -471,7 +417,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 100%;
+  flex: 1;
   background-color: #f1f1f1;
   gap: 16px;
   border-radius: 4px;
@@ -482,7 +428,6 @@ body {
   font-weight: 500;
   display: flex;
   align-items: baseline;
-  padding: 24px 0;
 }
 
 .compliance-item > div > span {
@@ -502,7 +447,12 @@ body {
   color: #fff;
   border-radius: 4px;
   text-align: center;
-  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
 }
 
 .security-box {
@@ -514,8 +464,9 @@ body {
 
 .security-number {
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
+  margin-bottom: 4px;
 }
 
 .security-label {
@@ -541,6 +492,8 @@ body {
 .tickets-list {
   max-height: 200px;
   overflow-y: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .ticket-item {
@@ -599,7 +552,6 @@ body {
   padding: 8px 16px;
   font-size: 12px;
   cursor: pointer;
-  margin-top: 16px;
   width: 100%;
 }
 
@@ -607,18 +559,14 @@ body {
 @media (max-width: 1200px) {
   .main-container {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    overflow-y: auto;
     height: auto;
   }
 
-  .left-panel {
-    border-right: none;
-    border-bottom: 1px solid #e9ecef;
-  }
-
-  .right-panel {
-    width: 100%;
+  .left-column,
+  .middle-column,
+  .right-column {
+    grid-template-rows: auto auto;
+    height: auto;
   }
 
   .devices-grid {
