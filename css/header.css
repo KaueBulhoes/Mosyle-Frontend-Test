@@ -1,0 +1,100 @@
+/* =============================================
+   HEADER - Cabeçalho e Navegação
+   ============================================= */
+
+.header {
+  background: var(--primary-blue);
+  color: var(--text-white);
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+}
+
+/* =============================================
+   MENU DE NAVEGAÇÃO
+   ============================================= */
+
+.nav-menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin-left: 30px;
+}
+
+.nav-menu li {
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-menu li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 60%;
+  height: 2px;
+  background-color: var(--accent-yellow);
+  transition: transform 0.3s ease;
+}
+
+.nav-menu li:hover::after,
+.nav-menu li.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.nav-menu li:hover,
+.nav-menu li.active {
+  color: var(--text-white);
+}
+
+/* =============================================
+   ÁREA DIREITA DO HEADER
+   ============================================= */
+
+.header-right {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.session-info {
+  background: var(--accent-yellow);
+  color: var(--text-primary);
+  padding: 4px 10px;
+  border-radius: 0 0 4px 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.settings-logout {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  justify-content: flex-end;
+}
+
+.settings-logout span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}

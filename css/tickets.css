@@ -1,0 +1,84 @@
+/* =============================================
+   SUPPORT TICKETS
+   ============================================= */
+
+.tickets-list {
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  overflow-y: auto;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  flex: 1;
+  min-height: 0;
+}
+
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  min-height: 47px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ticket-item:nth-child(odd) {
+  background-color: var(--bg-alternate);
+}
+
+.ticket-item:nth-child(even) {
+  background-color: var(--bg-card);
+}
+
+.ticket-item:last-child {
+  border-bottom: none;
+}
+
+/* =============================================
+   TICKET DETAILS
+   ============================================= */
+
+.ticket-status-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticket-status {
+  background: var(--text-secondary);
+  color: var(--text-white);
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.ticket-id {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.ticket-date {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* =============================================
+   GO TO SUPPORT BUTTON
+   ============================================= */
+
+.go-support-btn {
+  background: var(--status-neutral);
+  color: #888888;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  width: auto;
+  max-width: 150px;
+  margin: 0 auto;
+  display: block;
+  flex-shrink: 0;
+}

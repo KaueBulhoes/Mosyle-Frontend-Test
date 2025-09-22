@@ -1,0 +1,169 @@
+/* =============================================
+   SECURITY - Segurança e Compliance
+   ============================================= */
+
+.security-card-container {
+  overflow: hidden;
+}
+
+.security-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.security-header .card-title {
+  margin: 0;
+}
+
+/* =============================================
+   REFRESH BUTTON
+   ============================================= */
+
+.refresh-btn {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.security-header:hover .refresh-btn,
+.refresh-btn.loading {
+  opacity: 1;
+}
+
+.refresh-btn:hover {
+  background-color: var(--bg-alternate);
+  color: var(--primary-blue);
+}
+
+.refresh-btn .material-icons {
+  font-size: 20px;
+}
+
+.refresh-btn.loading .material-icons {
+  animation: spin 1s linear infinite;
+}
+
+/* =============================================
+   SECURITY CARD LAYOUT
+   ============================================= */
+
+.security-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.security-compliance,
+.security-infections {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   COMPLIANCE
+   ============================================= */
+
+.compliance-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.compliance-items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+  background-color: var(--bg-subtle);
+  gap: 16px;
+  border-radius: 4px;
+}
+
+.compliance-item {
+  font-size: 36px;
+  font-weight: 500;
+  display: flex;
+  align-items: baseline;
+}
+
+.compliance-item > div > span {
+  font-size: 24px;
+}
+
+.green {
+  color: var(--accent-green);
+}
+
+.red {
+  color: var(--accent-red);
+}
+
+/* =============================================
+   INFECTIONS SUMMARY
+   ============================================= */
+
+.security-summary {
+  background: var(--security);
+  color: var(--text-white);
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+}
+
+.security-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.security-number {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.security-label {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.security-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.divider {
+  width: 10px;
+  height: 1px;
+  margin: 0 4px;
+  background: var(--text-white);
+}

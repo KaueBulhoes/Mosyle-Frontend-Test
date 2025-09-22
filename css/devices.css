@@ -1,0 +1,103 @@
+/* =============================================
+   ENROLLED DEVICES - Dispositivos Cadastrados
+   ============================================= */
+
+.subscription-status {
+  color: var(--primary-green);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.subscription-status .material-icons {
+  background-color: var(--primary-green);
+  color: var(--text-white);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* =============================================
+   LICENSE PROGRESS BAR
+   ============================================= */
+
+.license-progress-bar {
+  height: 25px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background: var(--gradient-blue);
+  flex-shrink: 0;
+}
+
+.license-progress {
+  height: 100%;
+  background-color: #4cade3;
+}
+
+.license-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   DEVICES GRID
+   ============================================= */
+
+.devices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.device-card {
+  text-align: center;
+}
+
+/* =============================================
+   DEVICE ICONS
+   ============================================= */
+
+.device-icon-placeholder {
+  font-size: 22px;
+}
+
+.device-icon-ios::before {
+  content: "📱";
+}
+
+.device-icon-macos::before {
+  content: "💻";
+}
+
+.device-icon-tvos::before {
+  content: "📺";
+}
+
+.device-icon-visionos::before {
+  content: "🥽";
+}
+
+.device-number {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.device-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
