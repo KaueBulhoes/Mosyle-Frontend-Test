@@ -100,11 +100,11 @@ function renderDevices() {
     deviceCard.className = "device-card";
 
     const iconClass =
-      device.icon === "📱"
+      device.icon === "ðŸ“±"
         ? "device-icon-ios"
-        : device.icon === "💻"
+        : device.icon === "ðŸ’»"
         ? "device-icon-macos"
-        : device.icon === "📺"
+        : device.icon === "ðŸ“º"
         ? "device-icon-tvos"
         : "device-icon-visionos";
 

@@ -6,14 +6,14 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: #f8f9fa;
+  background: var(--bg-alternate);
   overflow: hidden;
   height: 100vh;
 }
 
 .header {
-  background: #1a4a7a;
-  color: #fff;
+  background: var(--primary-blue);
+  color: var(--text-white);
   padding: 0 24px;
   height: 60px;
   display: flex;
@@ -51,7 +51,7 @@ body {
   transform-origin: center;
   width: 60%;
   height: 2px;
-  background-color: #ffc107;
+  background-color: var(--accent-yellow);
   transition: transform 0.3s ease;
 }
 
@@ -62,7 +62,7 @@ body {
 
 .nav-menu li:hover,
 .nav-menu li.active {
-  color: #fff;
+  color: var(--text-white);
 }
 
 .header-right {
@@ -75,8 +75,8 @@ body {
 }
 
 .session-info {
-  background: #ffc107;
-  color: #333;
+  background: var(--accent-yellow);
+  color: var(--text-primary);
   padding: 4px 10px;
   border-radius: 0 0 4px 4px;
   font-size: 12px;
@@ -106,7 +106,7 @@ body {
   gap: 20px;
   padding: 20px;
   height: calc(100vh - 60px);
-  background-color: #ebebeb;
+  background-color: var(--bg-main);
 }
 
 .left-column {
@@ -125,11 +125,11 @@ body {
 }
 
 .card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 4px;
   padding: 24px 18px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--border-light);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -159,7 +159,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: bold;
-  background: linear-gradient(90deg, #4090e6, #000000);
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -169,7 +169,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   text-align: center;
   flex-shrink: 0;
 }
@@ -180,14 +180,14 @@ body {
   list-style: none;
   padding: 12px 10px;
   font-size: 12px;
-  color: #535353;
+  color: var(--text-secondary);
   flex-shrink: 0;
 }
 
 .device-item {
   display: flex;
   align-items: center;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -213,7 +213,7 @@ body {
 }
 
 .alerts-list {
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--border-medium);
   border-radius: 6px;
   flex: 1;
   overflow-y: auto;
@@ -225,17 +225,17 @@ body {
   align-items: center;
   padding: 0 16px;
   min-height: 47px;
-  border-bottom: 1px solid #f1f3f4;
+  border-bottom: 1px solid var(--border-subtle);
   position: relative;
   font-size: 13px;
 }
 
 .alert-item:nth-child(odd) {
-  background-color: #f8f9fa;
+  background-color: var(--bg-alternate);
 }
 
 .alert-item:nth-child(even) {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
 }
 
 .alert-icon {
@@ -250,11 +250,11 @@ body {
 
 .alert-text {
   flex: 1;
-  color: #495057;
+  color: var(--text-secondary);
 }
 
 .alert-count {
-  color: #495057;
+  color: var(--text-secondary);
   border-radius: 50%;
   min-width: 20px;
   height: 20px;
@@ -299,12 +299,12 @@ body {
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  color: #333;
+  color: var(--text-primary);
   flex-shrink: 0;
 }
 
 .subscription-status {
-  color: #28a745;
+  color: var(--accent-green);
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -314,8 +314,8 @@ body {
 }
 
 .subscription-status .material-icons {
-  background-color: #28a745;
-  color: #fff;
+  background-color: var(--accent-green);
+  color: var(--text-white);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -330,7 +330,7 @@ body {
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 8px;
-  background: linear-gradient(90deg, #007bff, #0056b3);
+  background: var(--gradient-blue);
   flex-shrink: 0;
 }
 
@@ -341,7 +341,7 @@ body {
 
 .license-text {
   font-size: 12px;
-  color: #6c757d;
+  color: var(--text-secondary);
   text-align: center;
   margin-bottom: 20px;
   flex-shrink: 0;
@@ -378,7 +378,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-weight: 700;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .device-icon-placeholder {
@@ -387,7 +387,8 @@ body {
 
 .device-label {
   font-size: 11px;
-  color: #6c757d;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .quick-access-title {
@@ -395,7 +396,7 @@ body {
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 12px;
   flex-shrink: 0;
 }
@@ -420,7 +421,7 @@ body {
   font-size: 12px;
   text-align: center;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 10px;
 }
 
@@ -429,7 +430,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   flex: 1;
-  background-color: #f1f1f1;
+  background-color: var(--bg-subtle);
   gap: 16px;
   border-radius: 4px;
 }
@@ -446,16 +447,16 @@ body {
 }
 
 .green {
-  color: #28a745;
+  color: var(--accent-green);
 }
 
 .red {
-  color: #e20c0c;
+  color: var(--accent-red);
 }
 
 .security-summary {
-  background: linear-gradient(90deg, #3cc59c, #20c997);
-  color: #fff;
+  background: var(--gradient-security);
+  color: var(--text-white);
   border-radius: 4px;
   text-align: center;
   display: flex;
@@ -496,11 +497,11 @@ body {
   width: 10px;
   height: 1px;
   margin: 0 4px;
-  background: #fff;
+  background: var(--text-white);
 }
 
 .tickets-list {
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--border-medium);
   border-radius: 6px;
   overflow-y: auto;
   margin-top: 12px;
@@ -515,15 +516,15 @@ body {
   align-items: center;
   padding: 0 16px;
   min-height: 47px;
-  border-bottom: 1px solid #f1f3f4;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .ticket-item:nth-child(odd) {
-  background-color: #f8f9fa;
+  background-color: var(--bg-alternate);
 }
 
 .ticket-item:nth-child(even) {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
 }
 
 .ticket-item:last-child {
@@ -537,8 +538,8 @@ body {
 }
 
 .ticket-status {
-  background: #6c757d;
-  color: #fff;
+  background: var(--text-secondary);
+  color: var(--text-white);
   padding: 2px 8px;
   border-radius: 5px;
   font-size: 10px;
@@ -547,17 +548,17 @@ body {
 
 .ticket-id {
   font-size: 12px;
-  color: #6c757d;
+  color: var(--text-secondary);
 }
 
 .ticket-date {
   font-size: 11px;
-  color: #6c757d;
+  color: var(--text-secondary);
   text-align: right;
 }
 
 .go-support-btn {
-  background: #b4b4b4;
+  background: var(--status-neutral);
   color: #5c5c5c;
   border: none;
   border-radius: 4px;
@@ -688,11 +689,11 @@ body {
 
 .alerts-list::-webkit-scrollbar-track,
 .tickets-list::-webkit-scrollbar-track {
-  background: #f8f9fa;
+  background: var(--bg-alternate);
 }
 
 .alerts-list::-webkit-scrollbar-thumb,
 .tickets-list::-webkit-scrollbar-thumb {
-  background: #dee2e6;
+  background: var(--border-medium);
   border-radius: 3px;
 }
