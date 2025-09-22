@@ -191,22 +191,23 @@ body {
   white-space: nowrap;
 }
 
-.device-item:nth-child(1)::before {
+.device-item[data-device*="iOS"]::before {
   content: "📱";
   margin-right: 4px;
 }
 
-.device-item:nth-child(2)::before {
+.device-item[data-device*="macOS"]::before,
+.device-item[data-device*="masOC"]::before {
   content: "💻";
   margin-right: 4px;
 }
 
-.device-item:nth-child(3)::before {
+.device-item[data-device*="tvOS"]::before {
   content: "📺";
   margin-right: 4px;
 }
 
-.device-item:nth-child(4)::before {
+.device-item[data-device*="visionOS"]::before {
   content: "🥽";
   margin-right: 4px;
 }
@@ -335,7 +336,6 @@ body {
 
 .license-progress {
   height: 100%;
-  width: 5%;
   background-color: #71b3e9;
 }
 

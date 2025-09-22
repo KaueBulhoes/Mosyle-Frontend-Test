@@ -1,184 +1,218 @@
-/**
- * Mosyle Dashboard JavaScript
- * Handles interactivity for MDM alerts deletion and security refresh
- */
-
-/**
- * Deletes an alert item with smooth animation
- * @param {HTMLButtonElement} btn - The delete button that was clicked
- */
 function deleteAlert(btn) {
   const alertItem = btn.closest(".alert-item");
+  if (!alertItem) return;
 
-  if (!alertItem) {
-    console.error("Alert item not found");
-    return;
-  }
-
-  // Add smooth transition
   alertItem.style.transition = "all 0.3s ease";
   alertItem.style.opacity = "0";
   alertItem.style.transform = "translateX(-20px)";
 
-  // Remove the element after animation completes
   setTimeout(() => {
     alertItem.remove();
   }, 300);
 }
 
-/**
- * Refreshes the security section data
- * Shows loading state and success notification
- */
-function refreshSecurity() {
-  const refreshBtn = document.querySelector(".refresh-security-btn");
+function renderDeviceList(container) {
+  const deviceList = container.querySelector(".device-list");
+  if (!deviceList) return;
 
-  if (!refreshBtn) {
-    console.error("Refresh button not found");
-    return;
-  }
+  deviceList.innerHTML = "";
 
-  const originalHTML = refreshBtn.innerHTML;
-
-  // Set loading state
-  refreshBtn.innerHTML = "🔄 Refreshing...";
-  refreshBtn.disabled = true;
-  refreshBtn.style.opacity = "0.7";
-
-  // Simulate refresh process
-  setTimeout(() => {
-    // Restore button state
-    refreshBtn.innerHTML = originalHTML;
-    refreshBtn.disabled = false;
-    refreshBtn.style.opacity = "1";
-
-    // Show success notification
-    showNotification("Security data refreshed!", "success");
-  }, 1500);
+  deviceTypes.forEach((device) => {
+    const listItem = document.createElement("li");
+    listItem.className = "device-item";
+    listItem.setAttribute("data-device", device.name);
+    listItem.textContent = device.name;
+    deviceList.appendChild(listItem);
+  });
 }
 
-/**
- * Shows a temporary notification message
- * @param {string} message - The message to display
- * @param {string} type - The type of notification ('success', 'error', 'info')
- */
-function showNotification(message, type = "info") {
-  const notification = document.createElement("div");
-  notification.textContent = message;
-  notification.className = `notification notification-${type}`;
+function renderAlerts() {
+  const alertsCard = document.querySelector(".alerts-card");
+  const alertsList = alertsCard.querySelector(".alerts-list");
+  if (!alertsList) return;
 
-  // Notification styles
-  notification.style.cssText = `
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background: ${getNotificationColor(type)};
-        color: white;
-        padding: 12px 20px;
-        border-radius: 6px;
-        font-size: 13px;
-        font-weight: 500;
-        z-index: 1000;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        animation: slideInRight 0.3s ease;
+  renderDeviceList(alertsCard);
+
+  alertsList.innerHTML = "";
+
+  dashboardData.alerts.forEach((alert) => {
+    const alertItem = document.createElement("div");
+    alertItem.className = "alert-item";
+
+    alertItem.innerHTML = `
+      <div class="alert-icon">${alert.icon}</div>
+      <span class="alert-text">${alert.text}</span>
+      ${
+        alert.count !== null
+          ? `<span class="alert-count">${alert.count}</span>`
+          : ""
+      }
+      <button class="delete-btn" onclick="deleteAlert(this)"></button>
     `;
 
-  document.body.appendChild(notification);
+    alertsList.appendChild(alertItem);
+  });
 
-  // Remove notification after 3 seconds
-  setTimeout(() => {
-    notification.style.animation = "slideOutRight 0.3s ease";
-    setTimeout(() => {
-      if (notification.parentNode) {
-        notification.remove();
-      }
-    }, 300);
-  }, 3000);
+  for (let i = 0; i < 2; i++) {
+    const emptyItem = document.createElement("div");
+    emptyItem.className = "alert-item";
+    alertsList.appendChild(emptyItem);
+  }
 }
 
-/**
- * Gets the appropriate color for notification type
- * @param {string} type - The notification type
- * @returns {string} - The color value
- */
-function getNotificationColor(type) {
-  const colors = {
-    success: "#28a745",
-    error: "#dc3545",
-    warning: "#ffc107",
-    info: "#17a2b8",
-  };
-  return colors[type] || colors.info;
+function renderQuickAccess() {
+  const quickAccessCard = document.querySelector(".quick-access-card");
+  const quickAccessList = quickAccessCard.querySelector(".alerts-list");
+  if (!quickAccessList) return;
+
+  renderDeviceList(quickAccessCard);
+
+  quickAccessList.innerHTML = "";
+
+  dashboardData.quickAccess.forEach((item) => {
+    const accessItem = document.createElement("div");
+    accessItem.className = "alert-item";
+
+    accessItem.innerHTML = `
+      <div class="alert-icon">${item.icon}</div>
+      <span class="alert-text">${item.text}</span>
+    `;
+
+    quickAccessList.appendChild(accessItem);
+  });
+
+  for (let i = 0; i < 8; i++) {
+    const emptyItem = document.createElement("div");
+    emptyItem.className = "alert-item";
+    emptyItem.innerHTML = '<span class="alert-text"></span>';
+    quickAccessList.appendChild(emptyItem);
+  }
 }
 
-/**
- * Initialize the dashboard when DOM is loaded
- */
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Mosyle Dashboard initialized");
+function renderDevices() {
+  const devicesGrid = document.querySelector(".devices-grid");
+  if (!devicesGrid) return;
 
-  // Add CSS animations for notifications
-  if (!document.querySelector("#notification-animations")) {
-    const style = document.createElement("style");
-    style.id = "notification-animations";
-    style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes slideOutRight {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-        `;
-    document.head.appendChild(style);
+  devicesGrid.innerHTML = "";
+
+  deviceTypes.forEach((device) => {
+    const deviceCard = document.createElement("div");
+    deviceCard.className = "device-card";
+
+    const iconClass =
+      device.icon === "📱"
+        ? "device-icon-ios"
+        : device.icon === "💻"
+        ? "device-icon-macos"
+        : device.icon === "📺"
+        ? "device-icon-tvos"
+        : "device-icon-visionos";
+
+    deviceCard.innerHTML = `
+      <div class="device-icon-placeholder ${iconClass}"></div>
+      <div class="device-number">${device.count}</div>
+      <div class="device-label">${device.shortName}</div>
+    `;
+
+    devicesGrid.appendChild(deviceCard);
+  });
+}
+
+function renderTickets() {
+  const ticketsList = document.querySelector(".tickets-list");
+  if (!ticketsList) return;
+
+  ticketsList.innerHTML = "";
+
+  dashboardData.tickets.forEach((ticket) => {
+    const ticketItem = document.createElement("div");
+    ticketItem.className = "ticket-item";
+
+    ticketItem.innerHTML = `
+      <div class="ticket-info">
+        <div class="ticket-status-line">
+          <span class="ticket-status">${ticket.status}</span>
+          <span class="ticket-id">${ticket.id} - ${ticket.description}</span>
+        </div>
+      </div>
+      <div class="ticket-date">${ticket.date}</div>
+    `;
+
+    ticketsList.appendChild(ticketItem);
+  });
+
+  for (let i = 0; i < 8; i++) {
+    const emptyItem = document.createElement("div");
+    emptyItem.className = "ticket-item";
+    emptyItem.innerHTML = `
+      <div class="ticket-info">
+        <div class="ticket-status-line"></div>
+      </div>
+    `;
+    ticketsList.appendChild(emptyItem);
+  }
+}
+
+function renderSecurity() {
+  const complianceItems = document.querySelector(".compliance-items");
+  if (complianceItems) {
+    complianceItems.innerHTML = "";
+
+    dashboardData.security.compliance.forEach((item) => {
+      const complianceItem = document.createElement("div");
+      complianceItem.className = `compliance-item ${item.status}`;
+
+      const iconClass =
+        item.type.toLowerCase() === "macos"
+          ? "device-icon-macos"
+          : "device-icon-ios";
+
+      complianceItem.innerHTML = `
+        <div class="${iconClass}"></div>
+        <div>${item.percentage}<span>%</span></div>
+      `;
+
+      complianceItems.appendChild(complianceItem);
+    });
   }
 
-  // Add hover effects for interactive elements
-  addHoverEffects();
-
-  // Initialize tooltips or other interactive features if needed
-  // initializeTooltips();
-});
-
-/**
- * Utility function to debounce function calls
- * @param {Function} func - The function to debounce
- * @param {number} wait - The delay in milliseconds
- * @returns {Function} - The debounced function
- */
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
+  const securityNumbers = document.querySelectorAll(".security-number");
+  if (securityNumbers.length >= 2) {
+    securityNumbers[0].textContent = dashboardData.security.infections.findings;
+    securityNumbers[1].textContent = dashboardData.security.infections.devices;
+  }
 }
 
-/**
- * Handle window resize for responsive behavior
- */
-window.addEventListener(
-  "resize",
-  debounce(function () {
-    // Add any responsive JavaScript logic here if needed
-    console.log("Window resized");
-  }, 250)
-);
+function renderSubscription() {
+  const subscriptionStatus = document.querySelector(
+    ".subscription-status span:last-child"
+  );
+  if (subscriptionStatus) {
+    subscriptionStatus.textContent = `${dashboardData.subscription.plan} subscription until ${dashboardData.subscription.expirationDate} (${dashboardData.subscription.daysLeft} days left)`;
+  }
+
+  const licenseText = document.querySelector(".license-text em");
+  if (licenseText) {
+    licenseText.textContent = `${dashboardData.subscription.licensesUsed} licenses used of ${dashboardData.subscription.licensesTotal} available`;
+  }
+
+  const licenseProgress = document.querySelector(".license-progress");
+  if (licenseProgress) {
+    const percentage =
+      (dashboardData.subscription.licensesUsed /
+        dashboardData.subscription.licensesTotal) *
+      5;
+    licenseProgress.style.width = `${percentage}%`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  renderAlerts();
+  renderQuickAccess();
+  renderDevices();
+  renderTickets();
+  renderSecurity();
+  renderSubscription();
+
+  console.log("Mosyle Dashboard initialized with dynamic data");
+});
