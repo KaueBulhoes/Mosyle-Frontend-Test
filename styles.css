@@ -222,7 +222,8 @@ body {
 .alert-item {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
+  padding: 0 16px;
+  min-height: 47px;
   border-bottom: 1px solid #f1f3f4;
   position: relative;
   font-size: 13px;
@@ -376,6 +377,10 @@ body {
   color: #333;
 }
 
+.device-icon-placeholder {
+  font-size: 22px;
+}
+
 .device-label {
   font-size: 11px;
   color: #6c757d;
@@ -490,40 +495,49 @@ body {
 
 /* Support Tickets */
 .tickets-list {
-  max-height: 200px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
   overflow-y: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 12px;
+  margin-bottom: 16px;
 }
 
 .ticket-item {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 12px 0;
+  align-items: center;
+  padding: 0 16px;
+  min-height: 47px;
   border-bottom: 1px solid #f1f3f4;
+}
+
+.ticket-item:nth-child(odd) {
+  background-color: #f8f9fa; /* Cinza claro */
+}
+
+.ticket-item:nth-child(even) {
+  background-color: #ffffff; /* Branco */
 }
 
 .ticket-item:last-child {
   border-bottom: none;
 }
 
-.ticket-info {
-  flex: 1;
+.ticket-item:last-child {
+  border-bottom: none;
 }
 
 .ticket-status-line {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 4px;
 }
 
 .ticket-status {
   background: #6c757d;
   color: #fff;
   padding: 2px 8px;
-  border-radius: 12px;
+  border-radius: 5px;
   font-size: 10px;
   font-weight: 500;
 }
@@ -545,14 +559,18 @@ body {
 }
 
 .go-support-btn {
-  background: #007bff;
-  color: #fff;
+  background: #b4b4b4;
+  color: #5c5c5c;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 12px;
+  font-weight: 700;
   cursor: pointer;
-  width: 100%;
+  width: auto; /* Remove a largura total */
+  max-width: 150px; /* Define largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  display: block; /* Necessário para margin auto funcionar */
 }
 
 /* Responsive Design */
