@@ -133,4 +133,8 @@ const dashboardData = {
     licensesUsed: 150,
     licensesTotal: 150,
   },
+  session: {
+    userName: "John Austin",
+    expiresIn: "23:13",
+  },
 };

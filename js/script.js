@@ -11,6 +11,18 @@ function deleteAlert(btn) {
   }, 300);
 }
 
+function refreshSecurity(btn) {
+  btn.classList.add("loading");
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.classList.remove("loading");
+    btn.disabled = false;
+
+    console.log("Security data refreshed");
+  }, 1500);
+}
+
 function renderDeviceList(container) {
   const deviceList = container.querySelector(".device-list");
   if (!deviceList) return;
@@ -100,11 +112,11 @@ function renderDevices() {
     deviceCard.className = "device-card";
 
     const iconClass =
-      device.icon === "ðŸ“±"
+      device.icon === "📱"
         ? "device-icon-ios"
-        : device.icon === "ðŸ’»"
+        : device.icon === "💻"
         ? "device-icon-macos"
-        : device.icon === "ðŸ“º"
+        : device.icon === "📺"
         ? "device-icon-tvos"
         : "device-icon-visionos";
 
@@ -206,6 +218,13 @@ function renderSubscription() {
   }
 }
 
+function renderSessionInfo() {
+  const sessionInfo = document.querySelector(".session-info");
+  if (sessionInfo && dashboardData.session) {
+    sessionInfo.textContent = `Session expires in: ${dashboardData.session.expiresIn} | ${dashboardData.session.userName}`;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   renderAlerts();
   renderQuickAccess();
@@ -213,6 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderTickets();
   renderSecurity();
   renderSubscription();
+  renderSessionInfo();
 
   console.log("Mosyle Dashboard initialized with dynamic data");
 });

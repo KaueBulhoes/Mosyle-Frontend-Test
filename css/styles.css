@@ -401,6 +401,67 @@ body {
   flex-shrink: 0;
 }
 
+/* Security Section with Refresh Button */
+.security-card-container {
+  overflow: hidden;
+}
+
+.security-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.security-header .card-title {
+  margin: 0;
+}
+
+.refresh-btn {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.security-header:hover .refresh-btn,
+.refresh-btn.loading {
+  opacity: 1;
+}
+
+.refresh-btn:hover {
+  background-color: var(--bg-alternate);
+  color: var(--primary-blue);
+}
+
+.refresh-btn .material-icons {
+  font-size: 20px;
+}
+
+.refresh-btn.loading .material-icons {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .security-card {
   display: grid;
   grid-template-columns: 1fr 1fr;

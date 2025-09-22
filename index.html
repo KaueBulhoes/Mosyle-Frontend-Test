@@ -33,7 +33,7 @@
         <li>Support</li>
       </ul>
       <div class="header-right">
-        <div class="session-info">Session expires in: 23:13 | John Austin</div>
+        <div class="session-info"></div>
         <div class="settings-logout">
           <span>⚙ Settings</span>
           <span>↻ Logout</span>
@@ -98,7 +98,12 @@
 
       <div class="right-column">
         <div class="card security-card-container">
-          <h3 class="card-title">Security</h3>
+          <div class="security-header">
+            <h3 class="card-title">Security</h3>
+            <button class="refresh-btn" onclick="refreshSecurity(this)">
+              <span class="material-icons">refresh</span>
+            </button>
+          </div>
 
           <div class="security-card">
             <div class="security-compliance">
